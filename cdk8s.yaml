@@ -1,0 +1,5 @@
+language: typescript
+app: npx ts-node --prefer-ts-exts bin/infrastructure.ts
+output: dist
+imports:
+  - k8s
