@@ -12,12 +12,14 @@ resources.
 
 `App.scope('k8s');` will return the root Kubernetes manifest construct for Kubernetes resources.
 
+The `App` object is implemented as a singleton so that it can be referenced from anywhere in the codebase.
+
 ### Registering new scopes
 
 You may want to register new scopes as you go along. The `App.register('my-scope', <construct>)` method
 allows you to register a new construct that can be referenced elsewhere.
 
-The `App` object is implemented as a singleton so that it can be referenced from anywhere in the codebase.
+Make sure to register scopes before they are used in other constructs.
 
 ## Initialization
 
