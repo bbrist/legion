@@ -27,6 +27,10 @@ export class App extends Construct {
         this.scopes = props.scopes;
     }
 
+    register(name: string, scope: IConstruct): void {
+        this.scopes[name] = scope;
+    }
+
     scope(name: string): IConstruct {
         return this.scopes[name];
     }
@@ -54,6 +58,10 @@ export default {
 
     initialize(props: RootConstructProps): void {
         App.instance = new App(props);
+    },
+
+    register(name: string, scope: IConstruct): void {
+        this.getInstance().register(name, scope);
     },
 
     scope(name: string): IConstruct {
