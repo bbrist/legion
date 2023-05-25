@@ -4,6 +4,8 @@
 node_modules
 .idea/
 
+__snapshots__
+
 # CDK asset staging directory
 .cdk.staging
 cdk.out
