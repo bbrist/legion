@@ -2,11 +2,15 @@
 import 'source-map-support/register';
 import * as cdk from 'aws-cdk-lib';
 import * as cdk8s from 'cdk8s';
-import App from "../lib/app";
+import App from '../util/app';
+import Config from '../util/config';
 import {InfrastructureApp} from "../lib/infrastructure-stack";
 
 const aws = new cdk.App();
 const k8s = new cdk8s.App();
+
+Config.initialize(__dirname + '/../config');
+Config.load('config.yaml');
 
 App.initialize({
     apps: {
