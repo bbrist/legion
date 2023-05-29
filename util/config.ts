@@ -1,7 +1,7 @@
 import * as fs from 'fs';
 import * as yaml from 'js-yaml';
 import * as path from 'path';
-import { mergeDeep } from "./utils";
+import { mergeDeep, resolvePlaceholders } from "./utils";
 
 class Config {
 
@@ -31,6 +31,9 @@ class Config {
         });
 
         mergeDeep(this.values, ...configs);
+        resolvePlaceholders(this.values);
+
+        console.debug("Resolved config", this.values);
     }
 
     get data(): any {
